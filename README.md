@@ -1,4 +1,8 @@
 # cts2852c-portfolio-project
+
+Blaire Swaby-Clacken
+October 2021
+
 A portfolio web site with at least five (5) pages.
 
 Create a portfolio web site with at least five (5) pages. The web site must have the following pages: 
