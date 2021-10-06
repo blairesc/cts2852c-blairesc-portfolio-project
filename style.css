@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
-    --accent-color: #f76c6c;
+    --accent-color: rgba(255, 56, 96, 1);
     --black: #333533;
     --bg-color: #e6e6e6;
     --border: .1rem solid rgba(0,0,0,.2);
@@ -25,7 +25,7 @@
 
 html {
     font-size: 60%;
-    overflow: hidden;
+   /* overflow: hidden; */
 }
 
 body {
@@ -195,9 +195,8 @@ section {
     position: relative;
     width: 1000px;
     min-height: 500px;
-    margin: 1rem;
+    margin: 1rem 1.5rem;
     overflow: hidden;
-    border-radius: .5rem; 
 }
 
 .slider .slide {
@@ -255,7 +254,7 @@ section {
     z-index: 999;
     display: flex;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 6rem;
 }
 
 .nav-bar .slide-icons {
@@ -275,7 +274,37 @@ section {
 
 /*About Me*/
 .about-me {
-    display: flex;
+    display: block;
+    width: 85%;
+    margin: auto;
+}
+
+.about-content {
+    float: left;
+    width: 40%;
+    padding: 1rem;
+}
+
+.about-content p {
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    line-height: 26px;
+    color: var(--black);
+    text-align: center;
+}
+
+.about-image {
+    float: right;
+    width: 55%;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: 3s linear;
 }
 
 
@@ -348,5 +377,11 @@ section {
 
     .nav-bar.display {
         display: none;
+    }
+
+    .about-content,
+    .about-image {
+        float: none;
+        width: 100%;
     }
 }
