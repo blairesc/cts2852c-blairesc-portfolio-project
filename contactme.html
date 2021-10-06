@@ -4,9 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Favicon-->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <!--CSS Link-->
+    <link rel="stylesheet" href="style.css">
+    
+    <!--Font Awesome CDN Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
     <title>Contact Me</title>
 </head>
 <body>
     
+    <div id="menu-btn" class="fas fa-bars"></div>
+    
+    <!--Header Section-->
+    <header class="header">
+        <div class="user">
+            <a href="index.html"><img src="images/headshot.jpg" alt="headshot" width=50 height=50></a>
+            <h3>Blaire <br> Swaby-Clacken</h3>
+            <!--make a like to home-->
+            <p>Web Developer</p>
+        </div>
+    
+        <nav class="navbar">
+            <a href="gallery.html">Gallery</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="contactme.html">Contact Me</a>
+            <a href="mypage.html">My Page</a>
+        </nav>
+    </header>
+
+    <section class="contact-me">
+
+        <h1 class="page-heading">Get in touch !</h1>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <a href="#" class="fas fa-map-marker-alt"></a>
+                <p>New Jersey</p>
+            </div>
+
+            <div class="contact-info">
+                <a href="#" class="fas fa-phone-alt"></a>
+                <p>(954) 000-000</p>
+            </div>
+
+            <div class="contact-info">
+                <a href="#" class="fas fa-envelope"></a>
+                <p>blaireswabyclacken<br>@yahoo.com</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="form" name="form" method="post" action="javascript: submitForm();" novalidate>
+                <label for="firstName">First Name: </label>
+                <input type="text" placeholder="Enter first name" id="firstName">
+
+                <br>
+
+                <label for="lastName">Last Name: </label>
+                <input type="text" placeholder="Enter last name" id="lastName">
+                
+                <br>
+                
+                <label for="email">Email: </label>
+                <input type="email" placeholder="Enter email" id="email">
+                
+                <br>
+                
+                <label for="date">Date: </label>
+                <input type="date" id="date">
+                
+                <br>
+                
+                <label for="password">Password: </label>
+                <input type="password" placeholder="Password" id="password">
+                
+                <br>
+                
+                <label for="message">Message: </label>
+                <textarea id="message"
+                    onFocus="updateCharCount();"
+                    onKeyUp="updateCharCount()"
+                ></textarea>
+
+                <input id="charCount" type="text" disabled="disabled" value="0" size="4">
+                
+                <br>
+                
+                <input type="submit" class="btn" value="Submit" onclick="return checkForm();">
+            </form>
+        </div>
+    </section>
+
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
