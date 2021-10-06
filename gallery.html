@@ -4,9 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS Link-->
+    <link rel="stylesheet" href="style.css">
+    
+    <!--Font Awesome CDN Link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
     <title>Gallery</title>
 </head>
 <body>
     
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <!--Header Section-->
+    <header class="header">
+        <div class="user">
+            <a href="index.html"><img src="images/headshot.jpg" alt="headshot" width=50 height=50></a>
+            <h3>Blaire deSouza</h3>
+            <!--make a like to home-->
+            <p>Web Developer</p>
+        </div>
+    
+        <nav class="navbar">
+            <a href="gallery.html">Gallery</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="contactme.html">Contact Me</a>
+            <a href="mypage.html">My Page</a>
+        </nav>
+    </header>
+
+    <section class="gallery">
+        
+        <div class="slider">
+            <div class="slide action">
+                <img src="images/birthday_countdown.png" alt="birthday countdown">
+            </div>
+            <div class="slide">
+                <img src="images/jquery_animations.png" alt="jQuery Animations">
+            </div>
+            <div class="slide">
+                <img src="images/robofriends.png" alt="Robofriends">
+            </div>
+            <div class="slide">
+                <img src="images/pepsi_landing.png" alt="Pepsi Landing Page">
+            </div>
+            <div class="slide">
+                <img src="images/housed.png" alt="Housed.">
+            </div>
+
+            <div class="slider-nav">
+                <i class="fas fa-chevron-left prev-btn"></i>
+                <i class="fas fa-chevron-right next-btn"></i>
+            </div>
+
+            <div class="nav-bar">
+                <div class="slide-icons action"></div>
+                <div class="slide-icons"></div>
+                <div class="slide-icons"></div>
+                <div class="slide-icons"></div>
+                <div class="slide-icons"></div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
