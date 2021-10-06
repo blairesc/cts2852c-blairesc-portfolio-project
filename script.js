@@ -7,8 +7,44 @@ let slides = document.querySelectorAll('.slide');
 let slideIcons = document.querySelectorAll('.slide-icons');
 let navBar = document.querySelector('.nav-bar');
 
-const numberOfSlides = slides.length;
-let currentSlide = 0;
+
+//cookie set on first visit
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+//get cookie
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert(`Welcome again ${user}!`);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+
 
 //menu burger icon toggle
 menu.onclick = () => {
@@ -17,6 +53,10 @@ menu.onclick = () => {
     body.classList.toggle('left');
     navBar.classList.toggle('display');
 }
+
+
+const numberOfSlides = slides.length;
+let currentSlide = 0;
 
 //next button funtion
 function nextSlide() {
@@ -74,3 +114,30 @@ function hover(image) {
 function unHover(image) {
     image.setAttribute('src', 'images/about1.jpg');
 }
+
+
+//My Page
+var character = document.getElementById("character");
+var block = document.getElementById("block");
+var counter=0;
+
+function jump(){
+    if(character.classList == "animate"){return}
+    character.classList.add("animate");
+    setTimeout(function(){
+        character.classList.remove("animate");
+    },300);
+}
+var checkDead = setInterval(function() {
+    let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
+        block.style.animation = "none";
+        alert("Game Over. score: "+Math.floor(counter/100));
+        counter=0;
+        block.style.animation = "block 1s infinite linear";
+    }else{
+        counter++;
+        document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
+    }
+}, 10);
