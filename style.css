@@ -1,7 +1,8 @@
+/*Google Font*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
-    --accent-color: #f76c6c;
+    --accent-color: rgba(255, 56, 96, 1);
     --black: #333533;
     --bg-color: #e6e6e6;
     --border: .1rem solid rgba(0,0,0,.2);
@@ -24,8 +25,7 @@
 
 html {
     font-size: 60%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    
 }
 
 body {
@@ -35,15 +35,23 @@ body {
 
 section {
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+.page-heading {
+    color: var(--black);
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    letter-spacing: .8rem;
 }
 
 .btn {
     margin-top: 1rem;
     display: inline-block;
-    padding: 1.2rem 3.5rem;
+    padding: 1.2rem 3rem;
     border-radius: .5rem;
-    font-size: 1.7rem;
+    font-size: 2rem;
     cursor: pointer;
     background: none;
     color: var(--black);
@@ -55,6 +63,7 @@ section {
     color: var(--accent-color);
 }
 
+/*Header*/
 .header {
     position: fixed;
     top: 0;
@@ -128,6 +137,8 @@ section {
     box-shadow: var(--box-shadow-inset);
 }
 
+
+/*Home*/
 .home {
     display: flex;
     flex-flow: column;
@@ -172,6 +183,8 @@ section {
     color: var(--accent-color);
 }
 
+
+/*Gallery*/
 .gallery {
     display: flex;
     align-items: center;
@@ -182,9 +195,8 @@ section {
     position: relative;
     width: 1000px;
     min-height: 500px;
-    margin: 3rem;
+    margin: 1rem 1.5rem;
     overflow: hidden;
-    border-radius: .5rem; 
 }
 
 .slider .slide {
@@ -205,7 +217,6 @@ section {
     height: 500px;
     object-fit: contain;
 }
-
 
 .slider-nav {
     height: 500px;
@@ -243,7 +254,7 @@ section {
     z-index: 999;
     display: flex;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 6rem;
 }
 
 .nav-bar .slide-icons {
@@ -261,6 +272,176 @@ section {
     background: var(--accent-color);
 }
 
+/*About Me*/
+.about-me {
+    display: block;
+    width: 85%;
+    margin: auto;
+}
+
+.about-content {
+    float: left;
+    width: 40%;
+    padding: 1rem;
+}
+
+.about-content p {
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    line-height: 26px;
+    color: var(--black);
+    text-align: center;
+}
+
+.about-image {
+    float: right;
+    width: 55%;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: 3s linear;
+}
+
+
+
+/*Contact Me*/
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 1rem;
+}
+
+.contact-container .contact-info {
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    margin-right: 3rem;
+}
+
+.contact-container .contact-info:hover {
+    background: #fff;
+}
+
+
+.contact-container .contact-info p {
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.contact-container .contact-info a {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+
+}
+
+.form-container {
+    width: 70%;
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 3rem 5rem;
+    margin: 2rem auto;
+}
+
+.form-container label {
+    color: var(--accent-color);
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.form-container input {
+	border: 2px solid #f0f0f0;
+	border-radius: .5rem;
+	display: block;
+	font-family: inherit;
+	font-size: 1.5rem;
+	padding: 10px;
+	width: 100%;
+}
+
+.form-container input:focus,
+.form-container input:hover {
+	outline: 0;
+	border-color: #777;
+}
+
+.form-container textarea {
+    width: 100%;
+    height: auto;
+    border: 2px solid #f0f0f0;
+	border-radius: .5rem;
+	display: block;
+	font-family: inherit;
+	font-size: 1.5rem;
+	padding: 2rem;
+}
+
+.form-container #charCount {
+    width: 10%;
+    height: 20px;
+} 
+
+.form-container input[type="submit"] {
+    width: 50%;
+}
+
+/*My Page*/
+.game{
+    width: 600px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 5rem auto;
+    cursor: pointer;
+}
+
+#character{
+    width: 20px;
+    height: 50px;
+    background-color: var(--accent-color);
+    position:relative;
+    top: 150px;
+    left: 20px;
+}
+
+.animate{
+    animation: jump 0.3s linear;
+} 
+
+@keyframes jump {
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+
+#block {
+    background-color: lightslategray;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+    animation: block 2s infinite linear;
+}
+
+@keyframes block {
+    0%{left: 500px}
+    100%{left: -20px}
+}
+
+p {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+}
 
 
 
@@ -326,5 +507,11 @@ section {
 
     .nav-bar.display {
         display: none;
+    }
+
+    .about-content,
+    .about-image {
+        float: none;
+        width: 100%;
     }
 }

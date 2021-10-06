@@ -1,14 +1,64 @@
-let menu = document.querySelector('#menu-btn');
-let header = document.querySelector('.header');
-let body = document.querySelector('body');
-let nextBtn = document.querySelector('.next-btn');
-let prevBtn = document.querySelector('.prev-btn');
-let slides = document.querySelectorAll('.slide');
-let slideIcons = document.querySelectorAll('.slide-icons');
-let navBar = document.querySelector('.nav-bar');
+const menu = document.querySelector('#menu-btn');
+const header = document.querySelector('.header');
+const body = document.querySelector('body');
 
-const numberOfSlides = slides.length;
-let currentSlide = 0;
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+const slides = document.querySelectorAll('.slide');
+const slideIcons = document.querySelectorAll('.slide-icons');
+const navBar = document.querySelector('.nav-bar');
+
+const ch = document.getElementById('character');
+const block = document.getElementById('block');
+
+const form = document.getElementById('form');
+const firstName = document.getElementById('firstName');
+const lastName = document.getElementById('lastName');
+const email = document.getElementById('email');
+const inputDate = new Date(document.getElementById('date').value);
+const password = document.getElementById('password');
+const message = document.getElementById('message');
+const charCount = document.getElementById('charCount');
+const submitBtn = document.getElementById('submit');
+
+
+//cookie set on first visit
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+//get cookie
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert(`Welcome again ${user}!`);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+
 
 //menu burger icon toggle
 menu.onclick = () => {
@@ -17,6 +67,10 @@ menu.onclick = () => {
     body.classList.toggle('left');
     navBar.classList.toggle('display');
 }
+
+
+const numberOfSlides = slides.length;
+let currentSlide = 0;
 
 //next button funtion
 function nextSlide() {
@@ -64,3 +118,106 @@ prevBtn.onclick = () => {
 
 //slider auto
 let playSlider = setInterval(nextSlide, 5000);
+
+
+//about image change
+function hover(image) {
+    image.setAttribute('src', 'images/about2.jpg');
+}
+
+function unHover(image) {
+    image.setAttribute('src', 'images/about1.jpg');
+}
+
+
+
+//contact page
+function submitForm() {
+    document.form.action = 'http://ss1.ciwcertified.com/cgi-bin/process.pl';
+    alert('Going to ' + document.form.action);
+    document.form.submit();
+}
+
+function isEmail(email) {
+	isMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(email);
+    return isMail;
+} 
+
+let valNumber = 0;
+function checkForm() {
+
+    if (/[a-z]/i.test(firstName.value) && /[a-z]/i.test(lastName.value) ) {
+        valNumber++;
+    }
+    alert('Enter the names correctly !');
+    
+
+    if (isEmail(email.value)) {
+        valNumber++;
+    }
+    alert('Enter email correctly !');
+
+    if (inputDate.value == " "){
+        valNumber++;
+    } 
+    alert('Choose a date');
+
+	if(password.value == '') {
+		valNumber++;
+	}
+    alert('Password cannot be blank');
+
+
+    if(valNumber == 4) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+
+
+function updateCharCount() {
+    charCount.value = message.value.length; 
+
+    if (message.value.length >= 500) {  //disables text area if reaches 500 characters
+        message.disabled = true;
+    }
+}
+
+
+
+
+//My Page Script :- Simple JavaScript Game
+var counter=0;
+ 
+function jump() {
+    if(character.classList == 'animate'){return}
+    character.classList.add('animate');
+    setTimeout(function(){
+        character.classList.remove('animate');
+    }, 500);
+}
+
+function dead() {
+    let characterTop = parseInt(window.getComputedStyle(character,null).getPropertyValue("top"));
+    let blockLeft = parseInt(window.getComputedStyle(block,null).getPropertyValue("left"));
+    
+    if (characterTop >= 130 && (blockLeft <= 20 && blockLeft >-26)) {
+        block.style.animation = 'none';
+        alert("Game Over! Score: " + Math.floor(counter/100));
+        counter=0;
+        block.style.animation = "block 2s infinite linear";
+    } 
+    else {
+        counter++;
+        document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
+    }
+}
+
+var checkDead;
+
+function isDead() {
+    checkDead = setInterval(dead, 10);
+} 
