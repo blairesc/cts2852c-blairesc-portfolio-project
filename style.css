@@ -1,3 +1,4 @@
+/*Google Font*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
@@ -24,8 +25,7 @@
 
 html {
     font-size: 60%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 body {
@@ -35,7 +35,15 @@ body {
 
 section {
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+.page-heading {
+    color: var(--black);
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    letter-spacing: .8rem;
 }
 
 .btn {
@@ -55,6 +63,7 @@ section {
     color: var(--accent-color);
 }
 
+/*Header*/
 .header {
     position: fixed;
     top: 0;
@@ -128,6 +137,8 @@ section {
     box-shadow: var(--box-shadow-inset);
 }
 
+
+/*Home*/
 .home {
     display: flex;
     flex-flow: column;
@@ -172,6 +183,8 @@ section {
     color: var(--accent-color);
 }
 
+
+/*Gallery*/
 .gallery {
     display: flex;
     align-items: center;
@@ -182,7 +195,7 @@ section {
     position: relative;
     width: 1000px;
     min-height: 500px;
-    margin: 3rem;
+    margin: 1rem;
     overflow: hidden;
     border-radius: .5rem; 
 }
@@ -205,7 +218,6 @@ section {
     height: 500px;
     object-fit: contain;
 }
-
 
 .slider-nav {
     height: 500px;
@@ -261,7 +273,17 @@ section {
     background: var(--accent-color);
 }
 
+/*About Me*/
+.about-me {
+    display: flex;
+}
 
+
+
+/*Contact Me*/
+
+
+/*My Page*/
 
 
 
