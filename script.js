@@ -64,3 +64,13 @@ prevBtn.onclick = () => {
 
 //slider auto
 let playSlider = setInterval(nextSlide, 5000);
+
+
+//about image change
+function hover(image) {
+    image.setAttribute('src', 'images/about2.jpg');
+}
+
+function unHover(image) {
+    image.setAttribute('src', 'images/about1.jpg');
+}
