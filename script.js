@@ -2,11 +2,11 @@ const menu = document.querySelector('#menu-btn');
 const header = document.querySelector('.header');
 const body = document.querySelector('body');
 
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
-const slides = document.querySelectorAll('.slide');
-const slideIcons = document.querySelectorAll('.slide-icons');
-const navBar = document.querySelector('.nav-bar');
+let nextBtn = document.querySelector('.next-btn');
+let prevBtn = document.querySelector('.prev-btn');
+let slides = document.querySelectorAll('.slide');
+let slideIcons = document.querySelectorAll('.slide-icons');
+let navBar = document.querySelector('.nav-bar');
 
 const ch = document.getElementById('character');
 const block = document.getElementById('block');
@@ -15,7 +15,6 @@ const form = document.getElementById('form');
 const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
 const email = document.getElementById('email');
-const inputDate = new Date(document.getElementById('date').value);
 const password = document.getElementById('password');
 const message = document.getElementById('message');
 const charCount = document.getElementById('charCount');
@@ -157,10 +156,6 @@ function checkForm() {
     }
     alert('Enter email correctly !');
 
-    if (inputDate.value == " "){
-        valNumber++;
-    } 
-    alert('Choose a date');
 
 	if(password.value == '') {
 		valNumber++;
@@ -168,7 +163,7 @@ function checkForm() {
     alert('Password cannot be blank');
 
 
-    if(valNumber == 4) {
+    if(valNumber == 3) {
         return true;
     }
     else {
