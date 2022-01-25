@@ -115,6 +115,14 @@ section {
     color: var(--accent-color);
 }
 
+.header .navbar .current {
+    background-color: var(--accent-color);
+}
+
+.header .navbar .current:hover {
+    color: white;
+}
+
 #menu-btn {
     position: fixed;
     top: 1.5rem;
