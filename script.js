@@ -71,7 +71,7 @@ menu.onclick = () => {
 const numberOfSlides = slides.length;
 let currentSlide = 0;
 
-//next button funtion
+//next button function
 function nextSlide() {
     slides.forEach((slide) => {
         slide.classList.remove('action');
@@ -180,39 +180,3 @@ function updateCharCount() {
         message.disabled = true;
     }
 }
-
-
-
-
-//My Page Script :- Simple JavaScript Game
-var counter=0;
- 
-function jump() {
-    if(character.classList == 'animate'){return}
-    character.classList.add('animate');
-    setTimeout(function(){
-        character.classList.remove('animate');
-    }, 500);
-}
-
-function dead() {
-    let characterTop = parseInt(window.getComputedStyle(character,null).getPropertyValue("top"));
-    let blockLeft = parseInt(window.getComputedStyle(block,null).getPropertyValue("left"));
-    
-    if (characterTop >= 130 && (blockLeft <= 20 && blockLeft >-26)) {
-        block.style.animation = 'none';
-        alert("Game Over! Score: " + Math.floor(counter/100));
-        counter=0;
-        block.style.animation = "block 2s infinite linear";
-    } 
-    else {
-        counter++;
-        document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
-    }
-}
-
-var checkDead;
-
-function isDead() {
-    checkDead = setInterval(dead, 10);
-} 
